@@ -2,6 +2,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { hydrate } from 'emotion'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 import AppContainer from 'react-hot-loader/lib/AppContainer'
@@ -10,6 +11,7 @@ import configureStore from './configureStore'
 
 const history = createHistory()
 const { store } = configureStore(history, window.REDUX_STATE)
+hydrate(window.EMOTION_HYDRATION_IDS)
 
 const render = App => {
   const root = document.getElementById('root')
